@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حاسبة معدل الأول ثانوي من 35</title>
+  <style>
+    :root{
+      --bg:#050816; --card:#0b1028cc; --gold:#ffd166; --cyan:#45f3ff; --pink:#ff4fd8; --green:#36ff93; --text:#f8fbff;
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Tajawal,Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#17246b 0,#050816 35%,#02030a 100%);color:var(--text);min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;background:linear-gradient(115deg,transparent 0 35%,#45f3ff22 36%,transparent 37% 65%,#ff4fd822 66%,transparent 67%),radial-gradient(circle at 80% 20%,#ffd16622,transparent 25%);pointer-events:none}
+    .wrap{width:min(1050px,92%);margin:auto;padding:34px 0 22px;position:relative}
+    header{text-align:center;margin-bottom:22px}.badge{display:inline-block;border:1px solid #ffffff33;border-radius:999px;padding:10px 18px;background:#ffffff12;backdrop-filter:blur(12px);color:var(--gold);font-weight:800;box-shadow:0 0 30px #45f3ff22}
+    h1{font-size:clamp(34px,6vw,72px);margin:18px 0 8px;line-height:1.05;text-shadow:0 0 22px #45f3ff66}.grad{background:linear-gradient(90deg,var(--gold),#fff,var(--cyan));-webkit-background-clip:text;color:transparent}
+    p{color:#dce6ff;font-size:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.card{background:var(--card);border:1px solid #ffffff26;border-radius:28px;padding:24px;box-shadow:0 25px 80px #0008, inset 0 0 45px #45f3ff10;backdrop-filter:blur(18px)}
+    label{display:block;margin:14px 0 8px;font-weight:800;color:#fff}input,select{width:100%;border:1px solid #ffffff22;background:#070b1f;color:#fff;border-radius:16px;padding:14px 16px;font-size:18px;outline:none;box-shadow:inset 0 0 18px #0008}input:focus,select:focus{border-color:var(--cyan);box-shadow:0 0 0 4px #45f3ff22}
+    .units{display:grid;gap:12px}.unit{display:grid;grid-template-columns:1.5fr .8fr;gap:12px;align-items:end;padding:12px;border:1px solid #ffffff16;border-radius:18px;background:#ffffff08}.unit small{color:#aebceb}
+    button{width:100%;margin-top:18px;border:0;border-radius:18px;padding:16px;font-size:21px;font-weight:900;color:#061022;background:linear-gradient(90deg,var(--gold),var(--cyan));cursor:pointer;box-shadow:0 0 35px #45f3ff55;transition:.2s}button:hover{transform:translateY(-2px) scale(1.01);filter:brightness(1.08)}
+    .result{text-align:center;min-height:100%;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}.result:before{content:"";position:absolute;inset:-80px;background:conic-gradient(from 90deg,transparent,var(--cyan),transparent,var(--pink),transparent);opacity:.18;animation:spin 6s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.result>*{position:relative}.name{font-size:clamp(28px,4vw,48px);font-weight:900;margin:0 0 15px}.score{font-size:clamp(70px,12vw,140px);font-weight:1000;line-height:.9;color:var(--green);text-shadow:0 0 30px #36ff9380}.outof{font-size:28px;color:var(--gold);font-weight:900}.percent{margin-top:16px;font-size:24px;color:#eaf2ff}.stamp{margin-top:18px;display:inline-block;padding:10px 16px;border-radius:999px;background:#ffffff12;color:var(--cyan);font-weight:900;border:1px solid #45f3ff44}
+    footer{text-align:center;margin-top:22px;color:#dbe6ff}.engineer{font-weight:900;color:var(--gold);font-size:20px}.phone{direction:ltr;display:inline-block;color:#fff}
+    @media(max-width:850px){.grid{grid-template-columns:1fr}.unit{grid-template-columns:1fr}.card{padding:18px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <span class="badge">BTEC IT • Grade Calculator</span>
+      <h1>حاسبة معدل <span class="grad">الأول ثانوي</span> من 35</h1>
+      <p>أدخل الاسم والتقييمات، والموقع يحسبها موزونة حسب مواد الأول ثانوي.</p>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <label for="studentName">اسم الطالب</label>
+        <input id="studentName" placeholder="مثال: ضياء طراونة" />
+        <div class="units">
+          <div class="unit"><div><label>المادة الأولى</label><small>الوزن 120</small></div><select class="grade" data-weight="120"><option value="100">D</option><option value="80">M</option><option value="60">P</option></select></div>
+          <div class="unit"><div><label>المادة الثانية</label><small>الوزن 60</small></div><select class="grade" data-weight="60"><option value="100">D</option><option value="80">M</option><option value="60">P</option></select></div>
+          <div class="unit"><div><label>المادة الثالثة</label><small>الوزن 60</small></div><select class="grade" data-weight="60"><option value="100">D</option><option value="80">M</option><option value="60">P</option></select></div>
+          <div class="unit"><div><label>المادة الرابعة</label><small>الوزن 60</small></div><select class="grade" data-weight="60"><option value="100">D</option><option value="80">M</option><option value="60">P</option></select></div>
+          <div class="unit"><div><label>المادة الخامسة</label><small>الوزن 60</small></div><select class="grade" data-weight="60"><option value="100">D</option><option value="80">M</option><option value="60">P</option></select></div>
+        </div>
+        <button onclick="calculate()">احسب النتيجة الآن ⚡</button>
+      </div>
+
+      <div class="card result" id="resultCard">
+        <div class="name" id="rName">جاهز للحساب</div>
+        <div><span class="score" id="rScore">--</span><span class="outof"> / 35</span></div>
+        <div class="percent" id="rPercent">اختر التقييمات واضغط احسب</div>
+        <div class="stamp">تصميم خيالي… بس بدون ما نحرق اللابتوب 🔥</div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="engineer">إعداد مهندس ليث طراونه</div>
+      <div>للتواصل: <span class="phone">0799023327</span></div>
+    </footer>
+  </main>
+
+  <script>
+    function calculate(){
+      const name = document.getElementById('studentName').value.trim() || 'الطالب';
+      const grades = [...document.querySelectorAll('.grade')];
+      let total = 0, weights = 0;
+      grades.forEach(g => { const w = Number(g.dataset.weight); total += Number(g.value) * w; weights += w; });
+      const percent = total / weights;
+      const score35 = percent * 0.35;
+      document.getElementById('rName').textContent = name;
+      document.getElementById('rScore').textContent = score35.toFixed(2);
+      document.getElementById('rPercent').textContent = `المعدل الموزون: ${percent.toFixed(2)}%`;
+    }
+    calculate();
+  </script>
+</body>
+</html>
