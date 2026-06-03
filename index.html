@@ -150,7 +150,7 @@
       filter:brightness(1.08);
     }
 
-    .print-btn{
+    .certificate-btn{
       background:linear-gradient(90deg,#36ff93,#45f3ff);
     }
 
@@ -253,31 +253,6 @@
       .unit{grid-template-columns:1fr}
       .card{padding:18px}
     }
-
-    @media print{
-      body{
-        background:#050816;
-      }
-
-      body *{
-        visibility:hidden;
-      }
-
-      #resultCard, #resultCard *{
-        visibility:visible;
-      }
-
-      #resultCard{
-        position:absolute;
-        top:30px;
-        right:30px;
-        left:30px;
-        min-height:500px;
-        background:#0b1028;
-        -webkit-print-color-adjust:exact;
-        print-color-adjust:exact;
-      }
-    }
   </style>
 </head>
 
@@ -357,7 +332,7 @@
         </div>
 
         <button onclick="calculate()">احسب النتيجة الآن ⚡</button>
-        <button class="print-btn" onclick="window.print()">طباعة النتيجة كصورة 🖨️</button>
+        <button class="certificate-btn" onclick="downloadCertificate()">إصدار شهادة كصورة 🏆</button>
       </div>
 
       <div class="card result" id="resultCard">
@@ -367,7 +342,7 @@
           <span class="outof"> / 35</span>
         </div>
         <div class="percent" id="rPercent">اختر التقييمات واضغط احسب</div>
-        <div class="stamp">BTEC IT • First Secondary Calculator</div>
+        <div class="stamp">BTEC IT • First Secondary Certificate</div>
       </div>
     </section>
 
@@ -375,6 +350,8 @@
       <div class="engineer">Designed by LAITH TARAWNEH</div>
     </footer>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <script>
     function calculate(){
@@ -396,6 +373,22 @@
       document.getElementById('rName').textContent = name;
       document.getElementById('rScore').textContent = score35.toFixed(2);
       document.getElementById('rPercent').textContent = `المعدل الموزون: ${percent.toFixed(2)}%`;
+    }
+
+    function downloadCertificate(){
+      calculate();
+
+      const card = document.getElementById("resultCard");
+
+      html2canvas(card, {
+        backgroundColor: "#050816",
+        scale: 3
+      }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "certificate-laith-tarawneh.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
     }
 
     calculate();
